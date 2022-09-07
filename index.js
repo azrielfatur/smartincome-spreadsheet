@@ -1,11 +1,13 @@
 const express = require("express");
+var cors = require('cors');
 const { google } = require("googleapis");
 
 const app = express();
 app.use(express.json())
+app.use(cors());
 // app.use(express.urlencoded({ extended: true }));
 
-app.post("/", async (req, res) => {
+app.post("/entries", async (req, res) => {
   const { pic_name, company_name, phone_number } = req.body;
 
   console.log(req.body);
